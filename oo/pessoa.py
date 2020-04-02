@@ -40,5 +40,5 @@ if __name__ == '__main__':
      print(id(Pessoa.olhos), id(luciano.olhos),id(renzo.olhos))
 
      print(Pessoa.metod_estatico(), luciano.metod_estatico())
-   #  print(Pessoa.nome_e_atributos_de_classe(),Luciano.metodo_estatico())
+     print(Pessoa.nome_e_atributos_de_classe(),luciano.nome_e_atributos_de_classe())
 
