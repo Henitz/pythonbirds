@@ -40,7 +40,7 @@ os seguintes atributos:
     >>> motor.frear()
     >>> motor.velocidade
     0
-  # Testando Direcão
+    # Testando Direcão
    >>> direcao = Direcao()
    >>> direcao.valor
    'Norte'
@@ -81,18 +81,20 @@ os seguintes atributos:
     >>> carro.calcular_velocidade()
     0
     >>> carro.calcular_direcao()
-    >>> 'Norte'
+    'Norte'
     >>> carro.girar_a_direita()
     >>> carro.calcular_direcao()
-    >>> 'Leste'
+   'Leste'
     >>> carro.girar_a_esquerda()
     >>> carro.calcular_direcao()
-    >>> 'Norte'
-    >>? carro.girar_a_esquerda()
+    'Norte'
+    >>> carro.girar_a_esquerda()
     >>> carro.calcular_direcao()
-    >>> 'Oeste'
+    'Oeste'
 
 """
+
+
 class Motor:
     def __init__(self):
         self.velocidade = 0
@@ -102,17 +104,48 @@ class Motor:
 
     def frear(self):
         self.velocidade -= 2
-        self.velocidade = max(0,self.velocidade)
+        self.velocidade = max(0, self.velocidade)
 
-class Direcao(object):
+
+NORTE = 'Norte'
+LESTE = 'Leste'
+SUL = 'Sul'
+OESTE = 'Oeste'
+
+
+class Direcao:
+    rotacao_a_direita_dct = {NORTE: LESTE, LESTE: SUL, SUL: OESTE, OESTE: NORTE}
+    rotacao_a_esquerda_dct = {NORTE: OESTE, LESTE: NORTE, SUL: LESTE, OESTE: SUL}
+
     def __init__(self):
-        self.valor = None
+        self.valor = NORTE
 
     def girar_a_direita(self):
-        pass
+        self.valor =self.rotacao_a_direita_dct[self.valor]
 
     def girar_a_esquerda(self):
-        pass
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
 
-class Carro(object):
-        pass
+
+class Carro:
+    def __init__(self, direcao, motor):
+        self.motor = motor
+        self.direcao = direcao
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+    def frear(self):
+        self.motor.frear()
+
+    def calcular_direcao(self):
+       return  self.direcao.valor
+
+    def girar_a_direita(self):
+        self.direcao.girar_a_direita()
+
+    def girar_a_esquerda(self):
+        self.direcao.girar_a_esquerda()
