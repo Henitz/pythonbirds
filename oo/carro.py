@@ -36,18 +36,18 @@ os seguintes atributos:
     3
     >>> motor.frear()
     >>> motor.velocidade
-     1
+    1
     >>> motor.frear()
     >>> motor.velocidade
     0
-    # Testando Direcão
-   >>> direcao = Direcao()
-   >>> direcao.valor
-   'Norte'
+    >>> # Testando Direção
+    >>> direcao = Direcao()
+    >>> direcao.valor
+    'Norte'
     >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Leste'
-   >>> direcao.girar_a_direita()
+    >>> direcao.girar_a_direita()
     >>> direcao.valor
     'Sul'
     >>> direcao.girar_a_direita()
@@ -62,7 +62,7 @@ os seguintes atributos:
     >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Sul'
-   >>> direcao.girar_a_esquerda()
+    >>> direcao.girar_a_esquerda()
     >>> direcao.valor
     'Leste'
     >>> direcao.girar_a_esquerda()
@@ -84,7 +84,7 @@ os seguintes atributos:
     'Norte'
     >>> carro.girar_a_direita()
     >>> carro.calcular_direcao()
-   'Leste'
+    'Leste'
     >>> carro.girar_a_esquerda()
     >>> carro.calcular_direcao()
     'Norte'
