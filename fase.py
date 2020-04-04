@@ -73,8 +73,7 @@ class Fase():
 
         :return:
         """
-        return EM_ANDAMENTO
-
+        return VITORIA
     def lancar(self, angulo, tempo):
         """
         Método que executa lógica de lançamento.
