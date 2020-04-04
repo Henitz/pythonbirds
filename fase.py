@@ -77,7 +77,7 @@ class Fase():
             return VITORIA
         elif self._possui_passaros_ativos():
                 return EM_ANDAMENTO
-            else
+        else:
                 return DERROTA
             
     def lancar(self, angulo, tempo):
@@ -91,14 +91,17 @@ class Fase():
         :param angulo: ângulo de lançamento
         :param tempo: Tempo de lançamento
         """
-        pass
+        for passaro in self._passaros:
+            if not passaro.foi_lancado():
+                passaro.lancar(angulo,tempo)
+                break
 
 
     def calcular_pontos(self, tempo):
         """
         Lógica que retorna os pontos a serem exibidos na tela.
 
-        Cada ator deve ser transformado em um Ponto.
+        Cada ator deve ser tranasformado em um Ponto.
 
         :param tempo: tempo para o qual devem ser calculados os pontos
         :return: objeto do tipo Ponto
