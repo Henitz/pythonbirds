@@ -79,7 +79,9 @@ class Fase():
                 return EM_ANDAMENTO
         else:
                 return DERROTA
-            
+
+
+
     def lancar(self, angulo, tempo):
         """
         Método que executa lógica de lançamento.
