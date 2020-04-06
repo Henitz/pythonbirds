@@ -109,7 +109,8 @@ class Passaro(Ator):
         o status dos Passaro deve ser alterado para destruido, bem como o seu caracter
 
         """
-        pass
+        if self.y <= 0:
+            self.status = DESTRUIDO
 
     def calcular_posicao(self, tempo):
         """
@@ -125,11 +126,12 @@ class Passaro(Ator):
         :param tempo: tempo de jogo a ser calculada a posição
         :return: posição x, y
         """
-        if self.foi_lancado():
+        if self.foi_lancado() and self.status == ATIVO:
             delta_t = tempo - self._tempo_de_lancamento
             self.calcular_posicao_vertical(delta_t)
             self._calcular_posicao_horizontal(delta_t)
         return super().calcular_posicao(tempo)
+
 
     def _calcular_posicao_vertical(self, delta_t):
         y_atual = self._y_inicial
